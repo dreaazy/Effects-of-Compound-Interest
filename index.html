@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator with Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Compound Interest Calculator with Graph</h1>
+    <div class="container">
+
+        
+        <div>
+            The formula for compound interest is given by:
+            $$ FV = P \left(1 + \frac{r}{n}\right)^{nt} + PMT \left( \frac{\left(1 + \frac{r}{n}\right)^{nt} - 1}{\frac{r}{n}} \right) $$
+            
+            <strong><h3>Where</h3></strong>
+            <ul>
+                <li><strong>FV</strong> = future value of the investment/loan, including interest</li>
+                <li><strong>P</strong> = initial principal (the initial amount of money)</li>
+                <li><strong>PMT</strong> = payment amount (the additional amount contributed every month)</li>
+                <li><strong>r</strong> = annual nominal interest rate (as a decimal)</li>
+                <li><strong>n</strong> = number of times that interest is compounded per year</li>
+                <li><strong>t</strong> = number of years the money is invested or borrowed</li>
+            </ul>
+            
+        </div>
+
+        <div id="form-graph">
+
+        
+            <div id="form-info">
+                <form id="compoundInterestForm">
+                    <label for="principal">Principal Amount ($):</label>
+                    <input id="principal" type="number" name="principal" required placeholder="Enter the principal amount">
+
+                    <label for="years">Number of Years:</label>
+                    <input id="years" type="number" name="years" required placeholder="Enter the number of years">
+
+                    <label for="interest">Annual Interest Rate (%):</label>
+                    <input id="interest" type="number" name="interest" required step="0.01" placeholder="Enter the interest rate">
+
+                    <label for="compoundsPerYear">Times Compounded Per Year:</label>
+                    <input id="compoundsPerYear" type="number" name="compoundsPerYear" required placeholder="Enter number of times interest is compounded per year">
+
+                    <label for="TER">TER (%):</label>
+                    <input id="TER" type="number" step="any" name="TER" required placeholder="Enter the TER (expense ratio)">
+
+                    <!-- New field for advisor's fee -->
+                    <label for="advisorFee">Financial Advisor Fee (%):</label>
+                    <input id="advisorFee" type="number" name="advisorFee" required placeholder="Enter the advisor's fee">
+
+                    <!-- TALKING ABOUT ACCUMULATION -->
+                    <label for="recBuy">Recurrent buying:</label>
+                    
+                    <select name="recBuy" id="recBuy">
+                        <option value="">--Please choose an option--</option>
+                        <option value="month">Monthly</option>
+                        <option value="day">Daily</option>
+                        <option value="year">Yearly</option>
+                    </select>
+
+                    <label for="advisorFee">Monthly contribution</label>
+                    <input id="monthlyContribution" type="number" name="monthlyContribution" required placeholder="MonthlyContribution">
+
+
+                    
+                    <input type="submit" value="Calculate">
+                </form>
+                <p>ETFs are 10 to 20 times cheaper than the active funds at your bank. You can find ETFs as low as 0.05% annual cost while banks sometimes dare to charge more than 2% on an annual basis for funds. You pay lower fees because index funds are very cheap to run. Tracking an index is simple.</p>
+            </div>
+            
+            
+            
+            <canvas id="interestChart"></canvas>
+
+        </div>
+
+    </div>
+
+    <h2>Result: <span id="result">-</span></h2>
+
+    <script src="index.js"></script>
+</body>
+</html>
